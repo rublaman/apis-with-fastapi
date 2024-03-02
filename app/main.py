@@ -102,26 +102,26 @@ async def get_invoices(customer_id: str):
 
 
 # Return a specific invoice
-@app.get("/invoice/{invnoice_no}")
-async def read_invoice(invnoice_no: int):
+@app.get("/invoice/{invoice_no}")
+async def read_invoice(invoice_no: int):
     # Option to manually create an invoice
-        #ex_inv = Invoice(invoice_no = invnoice_no, invoice_date= "2021-01-05", customer= URLLink(url = "/customer/12345"))
+        #ex_inv = Invoice(invoice_no = invoice_no, invoice_date= "2021-01-05", customer= URLLink(url = "/customer/12345"))
         #json_compatible_item_data = jsonable_encoder(ex_inv)
     
     # Read invoice from the dictionary
-    ex_invoice = fakeInvoiceTable[invnoice_no]
+    ex_invoice = fakeInvoiceTable[invoice_no]
 
     # Return the JSON that we stored
     return JSONResponse(content=ex_invoice)
 
 
 #get a specific stock code on the invoice
-@app.get("/invoice/{invnoice_no}/{stockcode}/")
-async def read_item(invnoice_no: int,stockcode: str):
+@app.get("/invoice/{invoice_no}/{stockcode}/")
+async def read_item(invoice_no: int,stockcode: str):
     return {"message": "Hello World"}
 
 # Add a stockcode to the inovice
-@app.post("/invoice/{invnoice_no}/{stockcode}/")
-async def add_item(invnoice_no: int ,stockcode:str):
+@app.post("/invoice/{invoice_no}/{stockcode}/")
+async def add_item(invoice_no: int ,stockcode:str):
     return {"message": "Hello World"}
 
